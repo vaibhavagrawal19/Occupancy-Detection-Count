@@ -11,7 +11,7 @@ from flask import request
 import json
 import matplotlib as plt
 
-last_prediction = 0
+last_prediction = 2
 
 cse_ip = "esw-onem2m.iiit.ac.in"
 cse_port = 443
@@ -30,7 +30,7 @@ def create_cnt():
     }
     payload = {
         "m2m:cnt": {
-            "rn": "trial-1",
+            "rn": "final",
             "mni": 10000,
         }
     }
@@ -44,7 +44,7 @@ def create_cnt():
     return
 
 
-def post_to_om2m(mydata):
+def post_to_om2m():
     headers = {
         "X-M2M-Origin": om2m_origin,
         "Content-Type": "application/json;ty=4"
@@ -52,7 +52,7 @@ def post_to_om2m(mydata):
     data = str(last_prediction)
     payload = {
         "m2m:cin": {
-            "con": str(mydata),
+            "con": str(data),
             "lbl": "V1.0.0",
             "cnf": "text"
         }

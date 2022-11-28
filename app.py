@@ -53,6 +53,11 @@ def register():
     return render_template("register.html")
 
 
+@app.route("/graph")
+def graph():
+    return render_template("graph.html")
+
+
 @app.route("/form_register", methods=["GET", "POST"])
 def register_procedure():
     username = request.form.get("room_no")
@@ -100,4 +105,4 @@ def motivation_page():
 def team_page():
     return render_template("team.html")
 
-app.run(host="192.168.252.199")
+

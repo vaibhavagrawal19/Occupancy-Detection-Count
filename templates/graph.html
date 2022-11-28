@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+
+<head>
+    <meta name="viewport" content="with=device-width, initial-scale=1.0">
+    <title>ESW Project</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,600;1,500;1,700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+        integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <link rel="stylesheet" href="static/css/graph.css">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+    <script>
+        function fetch_values() {
+            $('#error').text("fetching data");
+            $.ajax({
+                type: "GET",
+                url: 'https://api.thingspeak.com/channels/1921531/feeds.json?results=2',
+                data: {
+                    format: 'json'
+                },
+                success: function (data) {
+                    $('#error').text("data fetched");
+                    $('#field1').text(data.feeds[0].field1);
+                    $('#field2').text(data.feeds[0].field2);
+                    $('#field3').text(data.feeds[0].field3);
+                    $('#field4').text(data.feeds[0].field4);
+                    check_values();
+
+                },
+                error: function () {
+                    $('#error').text("There was an error in fetching values.");
+                },
+                complete: function () {
+                    setTimeout(fetch_values, 15000);
+                }
+            });
+        }
+
+        function check_values() {
+            var field1 = parseFloat($('#field1').text());
+            var field2 = parseFloat($('#field2').text());
+            var field3 = parseFloat($('#field3').text());
+        }
+
+        $(document).ready(function () {
+            fetch_values();
+        });
+
+    </script>
+</head>
+
+<body>
+   
+    <!-- DATA -->
+    <section class="data" id="dataid">
+        <h1>DATA COLLECTION</h1>
+        <br>
+        <p>The following graphs display the data collected over a period of time.
+        </p>
+        <br>
+        <div class="row-data">
+            <div class="data-col">
+                <h3>Graph 1<h3>
+                        <br>
+                        <h2>Number of Occupants vs Time</h2>
+                        <br>
+                        <iframe width="450" height="260" style="border: 1px solid #cccccc;"
+                            src="https://thingspeak.com/channels/1921531/charts/1?bgcolor=%23ffffff&color=%23d62020&dynamic=true&results=60&type=line&update=15"></iframe>
+                            <br>
+                            <p>No of Occupants: <span id="field1"></span></p>
+
+
+
+            </div>
+            <!-- <div class="data-col">
+                <h3>Graph 2<h3>
+                        <br>
+                        <h2>PIR State vs Time</h2>
+                        <br>
+                        <iframe width="450" height="260" style="border: 1px solid #cccccc;"
+                            src="https://thingspeak.com/channels/1921531/charts/2?bgcolor=%23ffffff&color=%23d62020&dynamic=true&results=60&type=line&update=15"></iframe>
+                            <br>
+                            <p>Pir State: <span id="field2"></span></p>
+
+
+
+            </div> -->
+            <div class="data-col">
+                <h3>Graph 2<h3>
+                        <br>
+                        <h2>Average Temperature vs Time</h2>
+                        <br>
+                        <iframe width="450" height="260" style="border: 1px solid #cccccc;"
+                            src="https://thingspeak.com/channels/1921531/charts/3?bgcolor=%23ffffff&color=%23d62020&dynamic=true&results=60&type=line&update=15"></iframe>
+                            <br>
+                            <p>Average Temperature: <span id="field3"></span></p>
+
+
+            </div>
+        </div>
+
+    </section>
+
+    
+    <!-- <script src="changecolor.js"></script> -->
+
+</body>
+
+</html>
