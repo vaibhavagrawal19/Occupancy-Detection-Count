@@ -8,7 +8,6 @@ from colour import Color
 from PIL import Image
 import shutil
 from flask import request
-from onem2m import *
 import json
 import matplotlib as plt
 
