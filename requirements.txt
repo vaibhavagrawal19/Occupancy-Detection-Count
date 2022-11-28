@@ -1,0 +1,8 @@
+colour
+Flask
+numpy
+Pillow
+requests
+scipy
+tensorflow
+Gunicorn

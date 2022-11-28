@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <title>DATA PAGE</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Alegreya&family=Raleway:ital,wght@0,200;1,700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="static/css/data.css">
+</head>
+
+<body>
+    <div class="bg"></div>
+
+    <div class="star-field">
+        <div class="layer"></div>
+        <div class="layer"></div>
+        <div class="layer"></div>
+        <div class="sign">
+            <span class="fast-flicker">CURR</span>ENT &nbsp;<span class="flicker">D</span>ATA
+        </div>
+        <br><br><br><br>
+
+        <div class="container">
+            <section class="data" id="dataid">
+                <script>
+                    let thermal_cnt = 0;
+                    let curr_cnt = 0;
+
+                    setInterval(function () {
+                        if (thermal_cnt % 2) {
+                            document.getElementById("image").innerHTML = '<img src=\"static/thermal_img0.jpg\" width=\"200\" height=\"200\">';
+                        }
+                        else {
+                            document.getElementById("image").innerHTML = '<img src=\"static/thermal_img1.jpg\" width=\"200\" height=\"200\">';
+                        }
+                        thermal_cnt += 1;
+                    }, 500);
+
+                    setInterval(function () {
+                        if (curr_cnt % 2) {
+                            document.getElementById("count").innerHTML = '<img src=\"static/curr0.png\" width=\"200\" height=\"200\">';
+                        }
+                        else {
+                            document.getElementById("count").innerHTML = '<img src=\"static/curr1.png\" width=\"200\" height=\"200\">';
+                        }
+                        curr_cnt += 1;
+                    }, 500);
+                </script>
+                <div class="row">
+                    <div class="data-col" id="image">
+                        <img src="static/thermal_img0.jpg">
+                    </div>
+                    <div class="data-col" id="count">
+                        <h1>NUMBER OF OCCUPANTS: <h1>
+                                <img src="static/curr0.png">
+                    </div>
+                    <br>
+                    <br>
+
+                    <p> Not working fine? Try calibrating: </p>
+                    <a href="./" target="_blank"> <button class="btn">CALIBERATE</button></a>
+            </section>
+        </div>
+    </div>
+</body>
+
+</html>
