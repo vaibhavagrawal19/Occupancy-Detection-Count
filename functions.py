@@ -57,7 +57,7 @@ def post_to_om2m():
             "cnf": "text"
         }
     }
-    response = requests.post(server + "Team-28/trial-1",
+    response = requests.post(server + "Team-28/final",
                   json=payload, headers=headers)
     if (str(response.code).startswith("20")):
         print("POST OK")
