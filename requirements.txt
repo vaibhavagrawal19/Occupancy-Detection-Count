@@ -1,4 +1,5 @@
 colour
+Gunicorn
 Flask
 matplotlib
 numpy
