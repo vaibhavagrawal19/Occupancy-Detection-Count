@@ -99,3 +99,5 @@ def motivation_page():
 @app.route("/team")
 def team_page():
     return render_template("team.html")
+
+app.run(host="192.168.252.199")

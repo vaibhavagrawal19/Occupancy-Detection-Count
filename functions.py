@@ -148,7 +148,7 @@ def predict_count(model):
     import tensorflow as tf
     from tensorflow import keras
     img = tf.keras.utils.load_img(
-        'static/thermal_img.jpg', target_size=(240, 240))
+        'static/thermal_img.jpg', target_size=(60, 60))
     img_array = tf.keras.utils.img_to_array(img)
     img_array = tf.expand_dims(img_array, 0)
     predictions = model.predict(img_array)
