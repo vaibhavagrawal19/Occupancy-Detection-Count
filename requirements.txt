@@ -1,8 +1,8 @@
 colour
 Flask
+matplotlib
 numpy
 Pillow
 requests
 scipy
 tensorflow
-Gunicorn
